@@ -20,6 +20,12 @@ void print_bill(int onum, int tnum, int tq);
 
 void enqueue_struct(Queue * q, int number, int order_type, int qt) {
     
+    // check if menu does not exist
+    if (order_type > 3 || order_type < 1) {
+        printf("No Food\n");
+        return;
+    }
+
     // setup new order
     Order * new_order = (Order *)malloc(sizeof(Order));
     new_order->order_number = number;
@@ -59,7 +65,7 @@ int dequeue_struct(Queue * q) {
     }
     // q is empty
     else {
-        printf("Empty queue\n");
+        printf("the queue is empty\n");
         return -1;
     }
 
